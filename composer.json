@@ -1,0 +1,26 @@
+{
+  "name": "enpii/yii2-enpii-cms",
+  "description": "Yii2 Enpii CMS",
+  "keywords": ["yii2", "extension", "cms"],
+  "homepage": "https://github.com/npbtrac/yii2-enpii-cms",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Trac Nguyen",
+      "email": "npbtrac@yahoo.com",
+      "homepage": "https://github.com/npbtrac"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "~2.0.6",
+    "yiisoft/yii2-bootstrap": "~2.0.0",
+    "yiisoft/yii2-swiftmailer": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "enpii\\enpiiCms\\": ""
+    }
+  }
+}
