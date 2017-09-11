@@ -1,19 +1,21 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * Author: npbtrac@yahoo.com
- * Date time: 9/8/17 6:01 PM
+ * Date time: 9/11/17 12:05 AM
  */
 
 namespace enpii\enpiiCms\libs\override\web;
 
+
+use yii\web\AssetBundle;
+
 /**
- * Class NpWebApplication
+ * Class NpAssetBundle
  * @package enpii\enpiiCms\libs\override\web
- * Override the Application for web
+ * Managing assets to load on a view
  */
-class NpWebApplication extends \yii\web\Application
+class NpAssetBundle extends AssetBundle
 {
 
 }
