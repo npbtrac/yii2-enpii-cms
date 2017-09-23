@@ -30,12 +30,12 @@ use yii\widgets\ActiveForm;
                 'tag' => false,
             ],
         ])->textInput([
-            'placeholder' => Yii::t(_NP_TEXT_CATE, 'Search...'),
+            'placeholder' => Yii::t(NP_TEXT_CATE, 'Search...'),
             'class' => 'form-control'
         ])->label(false); ?>
 
         <span class="input-group-btn">
-            <?= '<?=' ?> Html::submitButton(Yii::t(_NP_TEXT_CATE, 'Search') . ' <i class="m-icon-swapright m-icon-white"></i>', ['class' => 'btn green-haze']) ?>
+            <?= '<?=' ?> Html::submitButton(Yii::t(NP_TEXT_CATE, 'Search') . ' <i class="m-icon-swapright m-icon-white"></i>', ['class' => 'btn green-haze']) ?>
         </span>
     </div>
 

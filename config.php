@@ -6,6 +6,10 @@
  */
 
 return [
+	'aliases' => [
+		// Root path of the application
+		'@enpii/enpiiCms' => __DIR__,
+	],
 	'components' => [
 		// list of component configurations
 	],

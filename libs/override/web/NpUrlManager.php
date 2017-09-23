@@ -9,6 +9,10 @@ namespace enpii\enpiiCms\libs\override\web;
 
 use yii;
 use yii\web\UrlManager;
+use yii\base\InvalidConfigException as InvalidConfigException;
+use yii\web\Cookie as Cookie;
+use yii\base\Exception as Exception;
+use yii\helpers\Url as Url;
 
 /**
  * Class NpUrlManager
@@ -406,7 +410,7 @@ class NpUrlManager extends UrlManager
 		if (YII_ENV_TEST) {
 			// Response::redirect($url) above will call `Url::to()` internally. So to really
 			// test for the same final redirect URL here, we need to call Url::to(), too.
-			throw new \yii\base\Exception(\yii\helpers\Url::to($url));
+			throw new Exception(Url::to($url));
 		} else {
 			Yii::$app->end();
 		}
