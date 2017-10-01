@@ -17,43 +17,50 @@ use yii\web\View;
  */
 class NpView extends View
 {
-	/**
-	 * @property string $description Description for a web page
-	 */
-	protected $description = '';
+    /**
+     * @property string $description Description for a web page
+     */
+    protected $description = '';
 
-	/**
-	 * @property string $keywords Keywords for web page
-	 */
-	protected $keywords = '';
+    /**
+     * @property string $keywords Keywords for web page
+     */
+    protected $keywords = '';
 
-	/**
-	 * @property string $bodyClass CSS Class for web page
-	 */
-	protected $bodyClass = '';
+    /**
+     * @property string $bodyClass CSS Class for web page
+     */
+    protected $bodyClass = '';
 
-	/**
-	 * @return string
-	 */
-	public function getKeywords()
-	{
-		return $this->keywords;
-	}
+    /**
+     * @return string
+     */
+    public function getBodyClass()
+    {
+        return $this->bodyClass;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return $this->description;
-	}
+    public function getHtmlHead()
+    {
+        $strHtmlHead = '';
+        $strHtmlHead .= '<title>' . $this->getHtmlTitle() . '</title>';
+        $strHtmlHead .= '<meta name="keywords" content="' . $this->getHtmlTitle() . '"/>';
+        $strHtmlHead .= '<meta name="description" content="' . $this->getHtmlDescription() . '"/>';
+        return $strHtmlHead;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getBodyClass()
-	{
-		return $this->bodyClass;
-	}
+    public function getHtmlTitle()
+    {
+        return $this->title;
+    }
 
+    public function getHtmlKeywords()
+    {
+        return $this->keywords;
+    }
+
+    public function getHtmlDescription()
+    {
+        return $this->description;
+    }
 }
