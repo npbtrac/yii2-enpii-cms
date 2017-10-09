@@ -13,8 +13,10 @@ use enpii\enpiiCms\libs\override\web\NpView as View;
 \yii\jui\JuiAsset::register($this);
 \enpii\enpiiCms\assets\fontawesome\FontAwesomeAsset::register($this);
 \enpii\enpiiCms\assets\ionicons\IoniconsAsset::register($this);
-\enpii\enpiiCms\assets\adminlte\AdminLteAsset::register($this);
+
 \enpii\enpiiCms\assets\icheck\IcheckAsset::register($this);
+
+\enpii\enpiiCms\assets\adminlte\AdminLteAsset::register($this);
 
 /* @var View $this */
 /* @var string $content */

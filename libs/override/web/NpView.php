@@ -7,7 +7,7 @@
 
 namespace enpii\enpiiCms\libs\override\web;
 
-
+use yii;
 use yii\web\View;
 
 /**
@@ -62,5 +62,18 @@ class NpView extends View
     public function getHtmlDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Put javascript for base url to head
+     */
+    public function addBaseUrlScript()
+    {
+        // Add base Url and absolute base Url to the head
+        $arrJsPosHEad = empty($this->js[static::POS_HEAD]) ? [] : $this->js[static::POS_HEAD];
+        array_unshift($arrJsPosHEad,
+            "var absoluteBaseUrl = \"" . Yii::$app->urlManager->createAbsoluteUrl('site/index') . "\";");
+        array_unshift($arrJsPosHEad, "var baseUrl = \"" . Yii::$app->urlManager->baseUrl . "\";");
+        $this->js[static::POS_HEAD] = $arrJsPosHEad;
     }
 }

@@ -25,5 +25,7 @@ class IcheckAsset extends AssetBundle
 	    'icheck.min.js'
 	];
 	public $depends = [
+	    // Need jQuery to be loaded first
+	    'yii\web\JqueryAsset'
 	];
 }

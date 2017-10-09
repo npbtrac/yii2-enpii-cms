@@ -25,7 +25,7 @@ class JqueryMaskedInputAsset extends AssetBundle
 	    'jquery.maskedinput.js',
 	];
 	public $depends = [
-		// Need YiiAsset and BootstrapAsset to be loaded first
+		// Need Jquery to be loaded first
 		'yii\web\JqueryAsset',
 	];
 }

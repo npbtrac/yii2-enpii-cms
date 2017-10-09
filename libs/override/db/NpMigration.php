@@ -18,9 +18,9 @@ class NpMigration extends Migration
 {
     public function addItemCommonFields($tableName)
     {
-        $this->addCreatedAt($tableName);
-        $this->addUpdatedAt($tableName);
-        $this->addPublishedAt($tableName);
+        $this->addCreatedDate($tableName);
+        $this->addUpdatedDate($tableName);
+        $this->addPublishedDate($tableName);
         $this->addCreatorID($tableName);
         $this->addIsDeleted($tableName);
         $this->addOrderingWeight($tableName);
@@ -46,7 +46,7 @@ class NpMigration extends Migration
      * @param $tableName
      * @param string $columnName Name of the column
      */
-    public function addCreatedAt($tableName, $columnName = 'created_at_gmt')
+    public function addCreatedDate($tableName, $columnName = 'created_date_gmt')
     {
         $this->addColumn('{{%' . $tableName . '}}', $columnName,
             $this->dateTime()->comment('Date and time this record created (in GMT)'));
@@ -59,7 +59,7 @@ class NpMigration extends Migration
      * @param $tableName
      * @param string $columnName Name of the column
      */
-    public function addUpdatedAt($tableName, $columnName = 'updated_at_gmt')
+    public function addUpdatedDate($tableName, $columnName = 'updated_date_gmt')
     {
         $this->addColumn('{{%' . $tableName . '}}', $columnName,
             $this->dateTime()->comment('Date and time this record updated (in GMT)'));
@@ -72,7 +72,7 @@ class NpMigration extends Migration
      * a scheduled time in the future)
      * @param $tableName
      */
-    public function addPublishedAt($tableName, $columnName = 'published_at_gmt')
+    public function addPublishedDate($tableName, $columnName = 'published_at_gmt')
     {
         $this->addColumn('{{%' . $tableName . '}}', $columnName,
             $this->dateTime()->comment('Date and time this record published (in GMT)'));
