@@ -21,10 +21,11 @@ class m171007_062446_add_user extends Migration
             'id' => $this->bigPrimaryKey(),
             'email' => $this->string(255)->notNull()->comment('Primary email of the user. Use to recover password, receive notifications.'),
             'username' => $this->string(32)->notNull()->comment('Short alias to represent a user.'),
-            'first_name' => $this->string(255)->notNull()->comment('First Name .'),
-            'last_name' => $this->string(255)->notNull()->comment('Short alias to represent a user.'),
+            'hashed_password' => $this->string()->notNull()->comment('Hashed password of a user.'),
+            'first_name' => $this->string(255)->notNull()->comment('First Name.'),
+            'middle_name' => $this->string(255)->comment('Middle Name.'),
+            'last_name' => $this->string(255)->notNull()->comment('Family Name of user.'),
             'phone_number' => $this->string(16)->notNull()->comment('Primary phone number of user. Can be used to recover account, receive notifications or confirm some action.'),
-            'primary_user_profile_id' => $this->bigInteger()->notNull()->comment('ID of main profile for the user.'),
             'last_logged_in_date_gmt' => $this->dateTime()->comment('Date when user logged in the last time in GMT.'),
         ], $tableOptions);
 
@@ -33,6 +34,15 @@ class m171007_062446_add_user extends Migration
         $this->createIndex($this->tableNameUser . '_' . 'email' . '_idx', '{{%' . $this->tableNameUser . '}}', 'email');
         $this->createIndex($this->tableNameUser . '_' . 'username' . '_idx', '{{%' . $this->tableNameUser . '}}', 'username');
         $this->createIndex($this->tableNameUser . '_' . 'phone_number' . '_idx', '{{%' . $this->tableNameUser . '}}', 'phone_number');
+
+        $this->insert('{{%' . $this->tableNameUser . '}}', [
+            'email' => 'npbtrac@yahoo.com',
+            'username' => 'appadmin',
+            'hashed_password' => Yii::$app->security->generatePasswordHash('Admin@123'),
+            'first_name' => 'Admin',
+            'middle_name' => 'Super',
+            'last_name' => 'App',
+        ]);
     }
 
     /**
@@ -42,7 +52,9 @@ class m171007_062446_add_user extends Migration
     {
         echo "m171007_062446_add_user reverting.\n";
 
-        return $this->dropTable('{{%' . $this->tableNameUser . '}}');
+        $this->dropTable('{{%' . $this->tableNameUser . '}}');
+
+        return true;
     }
 
     /*
