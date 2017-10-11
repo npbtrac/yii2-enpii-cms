@@ -416,4 +416,12 @@ class NpUrlManager extends UrlManager
 		}
 	}
 
+    /**
+     * Return home url of current app
+     * @return mixed|string
+     */
+    public function getHomeUrl() {
+        return $this->createUrl('');
+    }
+
 }
