@@ -76,4 +76,16 @@ class NpView extends View
         array_unshift($arrJsPosHEad, "var baseUrl = \"" . Yii::$app->urlManager->baseUrl . "\";");
         $this->js[static::POS_HEAD] = $arrJsPosHEad;
     }
+
+    /**
+     * Set title for browser with prefix
+     * @param $title
+     * @param bool $isFrontend
+     * @param string $prefix
+     */
+    public function setBrowserTitle($title, $isFrontend = true, $prefix = 'Backend')
+    {
+        $strResult = ($isFrontend ? $title : $prefix . ' :: ' . $title);
+        $this->title = $strResult;
+    }
 }
